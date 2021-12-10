@@ -1,25 +1,20 @@
-// const fs = require('fs');
+const body = require('../fixtures/jsonSend')
+
 import {
   url,
   login,
   password,
   value_recall_count,
   value_language,
-  value_delay, value_name, verify_company_uuid, verify_status, default_agent_settings
-} from '..\\fixtures\\configData'; // импорт переменных из файла по маршруту
-
-// import {
-//   default_agent_settings
-// } from '..\\fixtures\\updateAgentNeuroDev-spec.json'; // импорт переменных из файла по маршруту
-
-// import default_agent_settings from '..\\..\\cypress\\fixtures\\updateAgentNeuroDev-spec';
-// MapUtils.deserialize(default_agent_settings);
-// fs.writeFileSync('./updateAgentNeuroDev-spec.json', JSON.stringify(file, null, 2));
-
-// Читаем из updateAgentNeuroDev-spec.json  cy.readFile('menu.json')
-// const read_updateAgentNeuroDev_spec = JSON.parse(fs.readFileSync('..\\fixtures\\updateAgentNeuroDev-spec.json'));
-// const read_updateAgentNeuroDev_spec = cy.readFile('..\\fixtures\\updateAgentNeuroDev-spec.json');
-// console.log(read_updateAgentNeuroDev_spec)
+  value_delay,
+  value_name,
+  verify_company_uuid,
+  verify_status,
+  verify_tts_voice,
+  verify_total_channel_limit,
+  value_tts_voice,
+  value_total_channel_limit
+} from '..\\fixtures\\dataVerify'; // см. стр. 51 ниже. посылается на б.энд, импортировано из E:\IT\Testing\Automation_08_09_2019\autotests_web\cypress\fixtures\dataVerify.ts
 
 describe('To get token', () => {
 
@@ -51,10 +46,6 @@ describe('Update Agent Neuro Dev', () => {
 
     it('Update Agent Neuro Dev', () => {
 
-      // const read_updateAgentNeuroDev_spec = JSON.stringify(cy.readFile('..\\fixtures\\updateAgentNeuroDev-spec.json'));
-      // const read_updateAgentNeuroDev_spec = JSON.parse(fs.readFileSync('..\\fixtures\\updateAgentNeuroDev-spec.json'));
-      // console.log(read_updateAgentNeuroDev_spec)
-
           // Actual
           cy.request({
             method: 'PUT',
@@ -62,24 +53,18 @@ describe('Update Agent Neuro Dev', () => {
             headers: {
               'Authorization': 'Bearer ' +  token
             },
-            body: {
-              'recall_count': value_recall_count,
-              'delay': value_delay,
-              'name': value_name,
-              'language': value_language,
-              'body': default_agent_settings,
-            }
+            body: body.body // импортировано из E:\IT\Testing\Automation_08_09_2019\autotests_web\cypress\fixtures\jsonSend.js
 
             // Expected
           }).then((res) => {
 
               cy.log(JSON.stringify(res))
-              expect(res.status).to.eq(verify_status)
+              expect(res.status).to.eq(verify_status) // см. стр. 3 выше. переменные для верификации с респонсом, импортированы из E:\IT\Testing\Automation_08_09_2019\autotests_web\cypress\fixtures\dataVerify.ts
               expect(res.body).has.property('recall_count', value_recall_count)
               expect(res.body).has.property('language', value_language)
               expect(res.body).has.property('company_uuid', verify_company_uuid)
-              expect(res.body).has.property('tts_voice', "oksana")
-              expect(res.body).has.property('total_channel_limit', 3)
+              expect(res.body).has.property('tts_voice', value_tts_voice)
+              expect(res.body).has.property('total_channel_limit', value_total_channel_limit)
           })
         })
     })

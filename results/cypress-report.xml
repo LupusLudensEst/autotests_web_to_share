@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="Mocha Tests" time="0.8610" tests="2" failures="0">
-  <testsuite name="Root Suite" timestamp="2021-12-10T16:57:12" tests="0" file="cypress/integration/updateAgentNeuroDev-spec.ts" time="0.0000" failures="0">
+<testsuites name="Mocha Tests" time="0.9200" tests="2" failures="0">
+  <testsuite name="Root Suite" timestamp="2021-12-10T18:02:44" tests="0" file="cypress/integration/updateAgentNeuroDev-spec.ts" time="0.0000" failures="0">
   </testsuite>
-  <testsuite name="To get token" timestamp="2021-12-10T16:57:12" tests="1" time="0.5740" failures="0">
-    <testcase name="To get token To get token" time="0.5740" classname="To get token">
+  <testsuite name="To get token" timestamp="2021-12-10T18:02:44" tests="1" time="0.6070" failures="0">
+    <testcase name="To get token To get token" time="0.6070" classname="To get token">
     </testcase>
   </testsuite>
-  <testsuite name="Update Agent Neuro Dev" timestamp="2021-12-10T16:57:13" tests="1" time="0.2870" failures="0">
-    <testcase name="To get token Update Agent Neuro Dev Update Agent Neuro Dev" time="0.2870" classname="Update Agent Neuro Dev">
+  <testsuite name="Update Agent Neuro Dev" timestamp="2021-12-10T18:02:45" tests="1" time="0.3130" failures="0">
+    <testcase name="To get token Update Agent Neuro Dev Update Agent Neuro Dev" time="0.3130" classname="Update Agent Neuro Dev">
     </testcase>
   </testsuite>
 </testsuites>

@@ -1,9 +1,7 @@
-const fs = require('fs');
-
 const body = {
   "body": {
     "delay": "11:11:11",
-    "recall_count": 111,
+    "recall_count": 1111,
     "trunk_uuid": "5b2e49f3-8e2a-4b92-8490-b2ce1cb46db8",
     "trunk": {
       "uuid": "5b2e49f3-8e2a-4b92-8490-b2ce1cb46db8",
@@ -62,10 +60,4 @@ const body = {
   }
 }
 
-// write
-fs.writeFileSync('./updateAgentNeuroDev-spec.json', JSON.stringify(body, null, 2));
-
-// read
-const readResult = JSON.parse(fs.readFileSync('./updateAgentNeuroDev-spec.json'));
-
-console.log(readResult)
+module.exports = body;
